@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>2e1806c4-1cd7-4010-be6d-3fd3c89164b4</PackageIdentityName>
     <PackageIdentityPublisher>CN=Lord Cthuluhoop</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>D0B3D554B796AC7E4FCF995766D8657A4C8AB4508AE30DB51A9C119691BBFA6E</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>2e1806c4-1cd7-4010-be6d-3fd3c89164b4_1.0.0.0_x86__9dbb5xbkkpmta</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>2e1806c4-1cd7-4010-be6d-3fd3c89164b4_9dbb5xbkkpmta!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-26T15:39:47.014</Modified>
+      <Modified>2018-02-27T17:33:05.978</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Chess.exe">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Chess.exe">
       <PackagePath>entrypoint\Chess.exe</PackagePath>
-      <Modified>2018-02-26T15:39:46.788</Modified>
+      <Modified>2018-02-27T17:33:05.737</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -495,108 +495,108 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T22:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackBishop.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackBishop.png">
       <PackagePath>PeiceImages\blackBishop.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.551</Modified>
+      <Modified>2018-02-26T15:48:50.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackKing.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackKing.png">
       <PackagePath>PeiceImages\blackKing.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.554</Modified>
+      <Modified>2018-02-26T15:48:50.848</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackKnight.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackKnight.png">
       <PackagePath>PeiceImages\blackKnight.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.558</Modified>
+      <Modified>2018-02-26T15:48:50.849</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackPawn.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackPawn.png">
       <PackagePath>PeiceImages\blackPawn.png</PackagePath>
-      <Modified>2018-02-26T14:03:00.404</Modified>
+      <Modified>2018-02-26T15:48:50.850</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackQueen.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackQueen.png">
       <PackagePath>PeiceImages\blackQueen.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.560</Modified>
+      <Modified>2018-02-26T15:48:50.851</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackRook.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackRook.png">
       <PackagePath>PeiceImages\blackRook.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.563</Modified>
+      <Modified>2018-02-26T15:48:50.851</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteBishop.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteBishop.png">
       <PackagePath>PeiceImages\whiteBishop.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.566</Modified>
+      <Modified>2018-02-26T15:48:50.852</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteKing.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteKing.png">
       <PackagePath>PeiceImages\whiteKing.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.569</Modified>
+      <Modified>2018-02-26T15:48:50.853</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteKnight.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteKnight.png">
       <PackagePath>PeiceImages\whiteKnight.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.571</Modified>
+      <Modified>2018-02-26T15:48:50.854</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whitePawn.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whitePawn.png">
       <PackagePath>PeiceImages\whitePawn.png</PackagePath>
-      <Modified>2018-02-26T15:04:52.666</Modified>
+      <Modified>2018-02-26T15:48:50.854</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteQueen.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteQueen.png">
       <PackagePath>PeiceImages\whiteQueen.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.545</Modified>
+      <Modified>2018-02-26T15:48:50.855</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteRook.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteRook.png">
       <PackagePath>PeiceImages\whiteRook.png</PackagePath>
-      <Modified>2018-02-26T15:20:22.548</Modified>
+      <Modified>2018-02-26T15:48:50.855</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.838</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.839</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.839</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-14T18:17:42.092</Modified>
+      <Modified>2018-02-26T15:48:50.842</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-02-26T12:49:13.514</Modified>
+      <Modified>2018-02-26T15:48:50.856</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Chess.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Chess.xr.xml">
       <PackagePath>Chess.xr.xml</PackagePath>
-      <Modified>2018-02-26T13:36:38.604</Modified>
+      <Modified>2018-02-26T15:48:51.368</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-09-28T17:28:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-26T15:23:14.006</Modified>
+      <Modified>2018-02-26T16:11:51.278</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Core\Chess.exe">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Core\Chess.exe">
       <PackagePath>Chess.exe</PackagePath>
-      <Modified>2018-02-26T15:39:47.010</Modified>
+      <Modified>2018-02-27T17:33:05.973</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

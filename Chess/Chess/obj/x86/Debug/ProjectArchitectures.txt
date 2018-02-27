@@ -1,1 +1,1 @@
-C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Chess.csproj;x86
+C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Chess.csproj;x86

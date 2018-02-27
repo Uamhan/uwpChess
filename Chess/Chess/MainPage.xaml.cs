@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -74,9 +75,16 @@ namespace Chess
 
             // add a border to each square on the grid
 
+            createBorders();
 
+
+
+        }
+
+        public void createBorders()
+        {
             Border border;
-
+            Grid board = FindName("ChessBoard") as Grid;
             int R, C;
 
             for (R = 0; R < boardRows; R++) // rows
@@ -101,16 +109,16 @@ namespace Chess
                         border.Background = new SolidColorBrush(Colors.White);
                     }
                     //add to chess board 
-                    grdChessBoard.Children.Add(border);
+                    board.Children.Add(border);
 
                 } // end C
             } // end of R
-
         }
+
 
         private void peiceSetup()
         {
-            
+
             Rectangle peice;
             Grid board = FindName("ChessBoard") as Grid;
 
@@ -131,7 +139,9 @@ namespace Chess
                 peice.VerticalAlignment = VerticalAlignment.Center;
                 peice.SetValue(Grid.RowProperty, 1);
                 peice.SetValue(Grid.ColumnProperty, i);
+                peice.Tapped += Peice_Tapped;
                 board.Children.Add(peice);
+
             }
 
             //white pawns
@@ -148,34 +158,37 @@ namespace Chess
                 peice.VerticalAlignment = VerticalAlignment.Center;
                 peice.SetValue(Grid.RowProperty, 6);
                 peice.SetValue(Grid.ColumnProperty, i);
+                peice.Tapped += Peice_Tapped;
                 board.Children.Add(peice);
             }
 
             //black rooks
             ImageBrush brBrush = new ImageBrush();
             brBrush.ImageSource = new BitmapImage(new Uri("ms-appx://Chess/PeiceImages/blackRook.png"));
-            
-                peice = new Rectangle();
-                peice.Name = "blackRook1";
-                peice.Width = boardWidth * 0.85;
-                peice.Height = boardHeight * 0.85;
-                peice.Fill = brBrush;
-                peice.HorizontalAlignment = HorizontalAlignment.Center;
-                peice.VerticalAlignment = VerticalAlignment.Center;
-                peice.SetValue(Grid.RowProperty, 0);
-                peice.SetValue(Grid.ColumnProperty, 0);
-                board.Children.Add(peice);
 
-                peice = new Rectangle();
-                peice.Name = "blackRook2";
-                peice.Width = boardWidth * 0.85;
-                peice.Height = boardHeight * 0.85;
-                peice.Fill = brBrush;
-                peice.HorizontalAlignment = HorizontalAlignment.Center;
-                peice.VerticalAlignment = VerticalAlignment.Center;
-                peice.SetValue(Grid.RowProperty, 0);
-                peice.SetValue(Grid.ColumnProperty, 7);
-                board.Children.Add(peice);
+            peice = new Rectangle();
+            peice.Name = "blackRook1";
+            peice.Width = boardWidth * 0.85;
+            peice.Height = boardHeight * 0.85;
+            peice.Fill = brBrush;
+            peice.HorizontalAlignment = HorizontalAlignment.Center;
+            peice.VerticalAlignment = VerticalAlignment.Center;
+            peice.SetValue(Grid.RowProperty, 0);
+            peice.SetValue(Grid.ColumnProperty, 0);
+            peice.Tapped += Peice_Tapped;
+            board.Children.Add(peice);
+
+            peice = new Rectangle();
+            peice.Name = "blackRook2";
+            peice.Width = boardWidth * 0.85;
+            peice.Height = boardHeight * 0.85;
+            peice.Fill = brBrush;
+            peice.HorizontalAlignment = HorizontalAlignment.Center;
+            peice.VerticalAlignment = VerticalAlignment.Center;
+            peice.SetValue(Grid.RowProperty, 0);
+            peice.SetValue(Grid.ColumnProperty, 7);
+            peice.Tapped += Peice_Tapped;
+            board.Children.Add(peice);
 
             //white rooks
             ImageBrush wrBrush = new ImageBrush();
@@ -190,6 +203,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 0);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -201,6 +215,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 7);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //black knights
             ImageBrush bkBrush = new ImageBrush();
@@ -215,6 +230,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 1);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -226,6 +242,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 6);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //white knights
             ImageBrush wkBrush = new ImageBrush();
@@ -240,6 +257,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 1);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -251,6 +269,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 6);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //black bishops
             ImageBrush bbBrush = new ImageBrush();
@@ -265,6 +284,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 2);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -276,6 +296,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 5);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //white bishops
             ImageBrush wbBrush = new ImageBrush();
@@ -290,6 +311,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 2);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -301,6 +323,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 5);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //black queen
             ImageBrush bqBrush = new ImageBrush();
@@ -314,6 +337,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 3);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //white queen
             ImageBrush wqBrush = new ImageBrush();
@@ -327,6 +351,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 4);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //black king
             ImageBrush bkingBrush = new ImageBrush();
@@ -340,6 +365,7 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 4);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
             //white king
             ImageBrush wkingBrush = new ImageBrush();
@@ -353,10 +379,436 @@ namespace Chess
             peice.VerticalAlignment = VerticalAlignment.Center;
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 3);
+            peice.Tapped += Peice_Tapped;
             board.Children.Add(peice);
+
+            foreach(var p in board.Children)
+            {
+                try
+                {
+                    Rectangle tp = (Rectangle)p;
+                    Canvas.SetZIndex(tp, 98);
+                }
+                catch
+                {
+
+                }
+            }
 
         }
 
+        Rectangle movePeice;
+        private void Peice_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //reset borders
 
+            Grid board = FindName("ChessBoard") as Grid;
+            foreach (var b in board.Children)
+            {
+                try
+                {
+                    Border brdr = (Border)b;
+                    board.Children.Remove(brdr);
+                }
+                catch { }
+            }
+            createBorders();
+
+            Rectangle current = (Rectangle)sender;
+            movePeice = current;
+            //pawnMovement
+            if (current.Name.Contains("Pawn"))
+            {
+                int moveToC;
+                int moveToR;
+                try
+                {
+                    if (current.Name.Contains("white"))
+                    {
+                        moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                        moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                    }
+                    else
+                    {
+                        moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                        moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                    }
+                    Border border;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+      
+            }
+            if (current.Name.Contains("Rook"))
+            {
+                int moveToC;
+                int moveToR;
+                Border border;
+                //Horizontal
+                moveToR = (int)current.GetValue(Grid.RowProperty);
+                moveToC = 0;
+                while (moveToC < 8)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                }
+                //Vertical
+                moveToR = 0;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                while (moveToR < 8)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToR++;
+                }
+
+
+
+            }
+            if (current.Name.Contains("Knight"))
+            {
+                int moveToC;
+                int moveToR;
+                Border border;
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 2;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 2;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 2;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 2;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 2;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 2;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                }
+                catch { }
+            }
+            if (current.Name.Contains("Bishop"))
+            {
+                int moveToC;
+                int moveToR;
+                Border border;
+                //up
+                moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                    moveToR++;
+                }
+                moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                    moveToR--;
+                }
+                moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR--;
+                }
+            }
+            if (current.Name.Contains("Queen"))
+            {
+                int moveToC;
+                int moveToR;
+                Border border;
+                //Horizontal
+                moveToR = (int)current.GetValue(Grid.RowProperty);
+                moveToC = 0;
+                while (moveToC < 8)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                }
+                //Vertical
+                moveToR = 0;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                while (moveToR < 8)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToR++;
+                }
+                //up
+                moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                    moveToR++;
+                }
+                moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                    moveToR--;
+                }
+                moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                while (moveToC < 8 && moveToR < 8 && moveToC >= 0 && moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR--;
+                }
+            }
+            if (current.Name.Contains("King"))
+            {
+                int moveToC;
+                int moveToR;
+                Border border;
+
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty);
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+                try
+                {
+                    moveToR = (int)current.GetValue(Grid.RowProperty);
+                    moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    moveToR++;
+                }
+                catch { }
+
+
+            }
+        }
+
+        private void Brdr_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Border current = (Border)sender;
+
+            movePeice.SetValue(Grid.RowProperty, current.GetValue(Grid.RowProperty));
+            movePeice.SetValue(Grid.ColumnProperty, current.GetValue(Grid.ColumnProperty));
+
+            Grid board = FindName("ChessBoard") as Grid;
+            foreach (var b in board.Children)
+            {
+                try
+                {
+                    Border brdr = (Border)b;
+                    board.Children.Remove(brdr);
+                }
+                catch { }
+            }
+            createBorders();
+
+        }
     }
 }

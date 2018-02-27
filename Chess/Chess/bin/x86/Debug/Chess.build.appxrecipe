@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>2e1806c4-1cd7-4010-be6d-3fd3c89164b4</PackageIdentityName>
     <PackageIdentityPublisher>CN=Lord Cthuluhoop</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Chess.exe">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Chess.exe">
       <PackagePath>entrypoint\Chess.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
@@ -370,83 +370,83 @@
     <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\.nuget\packages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackBishop.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackBishop.png">
       <PackagePath>PeiceImages\blackBishop.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackKing.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackKing.png">
       <PackagePath>PeiceImages\blackKing.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackKnight.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackKnight.png">
       <PackagePath>PeiceImages\blackKnight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackPawn.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackPawn.png">
       <PackagePath>PeiceImages\blackPawn.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackQueen.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackQueen.png">
       <PackagePath>PeiceImages\blackQueen.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\blackRook.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\blackRook.png">
       <PackagePath>PeiceImages\blackRook.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteBishop.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteBishop.png">
       <PackagePath>PeiceImages\whiteBishop.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteKing.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteKing.png">
       <PackagePath>PeiceImages\whiteKing.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteKnight.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteKnight.png">
       <PackagePath>PeiceImages\whiteKnight.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whitePawn.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whitePawn.png">
       <PackagePath>PeiceImages\whitePawn.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteQueen.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteQueen.png">
       <PackagePath>PeiceImages\whiteQueen.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\PeiceImages\whiteRook.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\PeiceImages\whiteRook.png">
       <PackagePath>PeiceImages\whiteRook.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Chess.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Chess.xr.xml">
       <PackagePath>Chess.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\source\repos\Chess\Chess\bin\x86\Debug\Core\Chess.exe">
+    <AppxPackagedFile Include="C:\Users\Lord Cthuluhoop\Source\Repos\uwpChess\Chess\Chess\bin\x86\Debug\Core\Chess.exe">
       <PackagePath>Chess.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
