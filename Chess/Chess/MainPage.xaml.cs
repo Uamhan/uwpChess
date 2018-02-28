@@ -442,8 +442,107 @@ namespace Chess
                 int moveToC;
                 int moveToR;
                 Border border;
+                
                 try
                 {
+
+
+
+                    if (current.Name.Contains("white"))
+                    {
+                        foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                        {
+                            done = false;
+                            moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                            border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                            if (border.Name == (string)peice.Tag)
+                            {
+                                border.Background = new SolidColorBrush(Colors.AliceBlue);
+                                border.Tag = "valid";
+                                border.Tapped += Brdr_Tapped;
+                                moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                                done = true;
+                                break;
+                            }
+                            if (done == true)
+                            {
+                                break;
+                            }
+                        }
+                        foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                        {
+                            done = false;
+                            moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                            border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                            if (border.Name == (string)peice.Tag)
+                            {
+                                border.Background = new SolidColorBrush(Colors.AliceBlue);
+                                border.Tag = "valid";
+                                border.Tapped += Brdr_Tapped;
+                                moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                                done = true;
+                                break;
+                            }
+                            if (done == true)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    if (current.Name.Contains("black"))
+                    {
+                        foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                        {
+                            done = false;
+                            moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                            border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                            if (border.Name == (string)peice.Tag)
+                            {
+                                border.Background = new SolidColorBrush(Colors.AliceBlue);
+                                border.Tag = "valid";
+                                border.Tapped += Brdr_Tapped;
+                                moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                                done = true;
+                                break;
+                            }
+                            if (done == true)
+                            {
+                                break;
+                            }
+                        }
+                        foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                        {
+                            done = false;
+                            moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                            border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                            if (border.Name == (string)peice.Tag)
+                            {
+                                border.Background = new SolidColorBrush(Colors.AliceBlue);
+                                border.Tag = "valid";
+                                border.Tapped += Brdr_Tapped;
+                                moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                                done = true;
+                                break;
+                            }
+                            if (done == true)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+
+
+
+
 
                     if (!current.Name.Contains("hasmoved"))
                     {
