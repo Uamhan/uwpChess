@@ -435,32 +435,68 @@ namespace Chess
 
             Rectangle current = (Rectangle)sender;
             movePeice = current;
-            //pawnMovement
+            //peice movement
+            //pawn movement
             if (current.Name.Contains("Pawn"))
             {
                 int moveToC;
                 int moveToR;
+                Border border;
                 try
                 {
-                    if (current.Name.Contains("white"))
+
+                    if (!current.Name.Contains("hasmoved"))
                     {
-                        moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
-                        moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                        
+                        if (current.Name.Contains("white"))
+                        {
+                            moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                            
+                            border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                            border.Background = new SolidColorBrush(Colors.AliceBlue);
+                            border.Tag = "valid";
+                            border.Tapped += Brdr_Tapped;
+                            moveToR = (int)current.GetValue(Grid.RowProperty) - 2;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                        }
+                        else
+                        {
+                            moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                            border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                            border.Background = new SolidColorBrush(Colors.AliceBlue);
+                            border.Tag = "valid";
+                            border.Tapped += Brdr_Tapped;
+                            moveToR = (int)current.GetValue(Grid.RowProperty) + 2;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                        }
                     }
                     else
                     {
-                        moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
-                        moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                        if (current.Name.Contains("white"))
+                        {
+                            moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                        }
+                        else
+                        {
+                            moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                            moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                        }
+
                     }
-                    Border border;
-                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
-                    border.Background = new SolidColorBrush(Colors.AliceBlue);
-                    border.Tag = "valid";
-                    border.Tapped += Brdr_Tapped;
+                        
+                        border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                        border.Background = new SolidColorBrush(Colors.AliceBlue);
+                        border.Tag = "valid";
+                        border.Tapped += Brdr_Tapped;
+                    
                 }
                 catch { }
       
             }
+            //rook movement
             if (current.Name.Contains("Rook"))
             {
                 int moveToC;
@@ -577,6 +613,7 @@ namespace Chess
 
 
             }
+            //knight movement
             if (current.Name.Contains("Knight"))
             {
                 int moveToC;
@@ -663,6 +700,7 @@ namespace Chess
                 }
                 catch { }
             }
+            //bishop movement
             if (current.Name.Contains("Bishop"))
             {
                 int moveToC;
@@ -778,6 +816,7 @@ namespace Chess
 
                 }
             }
+            //queen movement
             if (current.Name.Contains("Queen"))
             {
                 int moveToC;
@@ -1001,6 +1040,7 @@ namespace Chess
 
 
             }
+            //king movement
             if (current.Name.Contains("King"))
             {
                 int moveToC;
@@ -1111,6 +1151,10 @@ namespace Chess
         private void Brdr_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Border current = (Border)sender;
+            if(!movePeice.Name.Contains("hasmoved"))
+            {
+                movePeice.Name = movePeice.Name + "hasmoved";
+            }
 
             movePeice.SetValue(Grid.RowProperty, current.GetValue(Grid.RowProperty));
             movePeice.SetValue(Grid.ColumnProperty, current.GetValue(Grid.ColumnProperty));
