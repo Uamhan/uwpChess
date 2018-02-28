@@ -31,6 +31,7 @@ namespace Chess
         int boardRows = 8;
         const int boardHeight = 100;
         int boardWidth = 100;
+        bool done = false;
         #endregion
 
         public MainPage()
@@ -140,6 +141,7 @@ namespace Chess
                 peice.SetValue(Grid.RowProperty, 1);
                 peice.SetValue(Grid.ColumnProperty, i);
                 peice.Tapped += Peice_Tapped;
+                peice.Tag = "1" + i;
                 board.Children.Add(peice);
 
             }
@@ -159,6 +161,7 @@ namespace Chess
                 peice.SetValue(Grid.RowProperty, 6);
                 peice.SetValue(Grid.ColumnProperty, i);
                 peice.Tapped += Peice_Tapped;
+                peice.Tag = "6" + i;
                 board.Children.Add(peice);
             }
 
@@ -176,6 +179,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 0);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "00";
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -188,6 +192,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 7);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "07";
             board.Children.Add(peice);
 
             //white rooks
@@ -204,6 +209,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 0);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "70";
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -216,6 +222,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 7);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "77";
             board.Children.Add(peice);
             //black knights
             ImageBrush bkBrush = new ImageBrush();
@@ -231,6 +238,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 1);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "01";
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -243,6 +251,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 6);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "06";
             board.Children.Add(peice);
             //white knights
             ImageBrush wkBrush = new ImageBrush();
@@ -258,6 +267,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 1);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "71";
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -270,6 +280,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 6);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "76";
             board.Children.Add(peice);
             //black bishops
             ImageBrush bbBrush = new ImageBrush();
@@ -285,6 +296,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 2);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "02";
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -297,6 +309,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 5);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "05";
             board.Children.Add(peice);
             //white bishops
             ImageBrush wbBrush = new ImageBrush();
@@ -312,6 +325,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 2);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "72";
             board.Children.Add(peice);
 
             peice = new Rectangle();
@@ -324,6 +338,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 5);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "75";
             board.Children.Add(peice);
             //black queen
             ImageBrush bqBrush = new ImageBrush();
@@ -338,6 +353,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 3);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "03";
             board.Children.Add(peice);
             //white queen
             ImageBrush wqBrush = new ImageBrush();
@@ -352,6 +368,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 4);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "74";
             board.Children.Add(peice);
             //black king
             ImageBrush bkingBrush = new ImageBrush();
@@ -366,6 +383,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 0);
             peice.SetValue(Grid.ColumnProperty, 4);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "04";
             board.Children.Add(peice);
             //white king
             ImageBrush wkingBrush = new ImageBrush();
@@ -380,6 +398,7 @@ namespace Chess
             peice.SetValue(Grid.RowProperty, 7);
             peice.SetValue(Grid.ColumnProperty, 3);
             peice.Tapped += Peice_Tapped;
+            peice.Tag = "73";
             board.Children.Add(peice);
 
             foreach(var p in board.Children)
@@ -447,9 +466,35 @@ namespace Chess
                 int moveToC;
                 int moveToR;
                 Border border;
-                //Horizontal
+                //left
                 moveToR = (int)current.GetValue(Grid.RowProperty);
-                moveToC = 0;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty)-1;
+                while (moveToC >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+                    if (done)
+                    {
+                        break;
+                    }
+
+
+                }
+                //right
+                moveToR = (int)current.GetValue(Grid.RowProperty);
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
                 while (moveToC < 8)
                 {
                     border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
@@ -457,9 +502,51 @@ namespace Chess
                     border.Tag = "valid";
                     border.Tapped += Brdr_Tapped;
                     moveToC++;
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+                    if (done)
+                    {
+                        break;
+                    }
+
+
                 }
-                //Vertical
-                moveToR = 0;
+                //down
+                moveToR = (int)current.GetValue(Grid.RowProperty)-1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                while (moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToR--;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
+                }
+                //up
+                moveToR = (int)current.GetValue(Grid.RowProperty)+1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty);
                 while (moveToR < 8)
                 {
@@ -468,7 +555,24 @@ namespace Chess
                     border.Tag = "valid";
                     border.Tapped += Brdr_Tapped;
                     moveToR++;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
+
 
 
 
@@ -575,6 +679,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC--;
                     moveToR++;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>() )
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
                 moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
@@ -586,6 +706,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC++;
                     moveToR++;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
                 moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
@@ -597,6 +733,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC++;
                     moveToR--;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
                 moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
@@ -608,6 +760,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC--;
                     moveToR--;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
             }
             if (current.Name.Contains("Queen"))
@@ -615,28 +783,6 @@ namespace Chess
                 int moveToC;
                 int moveToR;
                 Border border;
-                //Horizontal
-                moveToR = (int)current.GetValue(Grid.RowProperty);
-                moveToC = 0;
-                while (moveToC < 8)
-                {
-                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
-                    border.Background = new SolidColorBrush(Colors.AliceBlue);
-                    border.Tag = "valid";
-                    border.Tapped += Brdr_Tapped;
-                    moveToC++;
-                }
-                //Vertical
-                moveToR = 0;
-                moveToC = (int)current.GetValue(Grid.ColumnProperty);
-                while (moveToR < 8)
-                {
-                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
-                    border.Background = new SolidColorBrush(Colors.AliceBlue);
-                    border.Tag = "valid";
-                    border.Tapped += Brdr_Tapped;
-                    moveToR++;
-                }
                 //up
                 moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
@@ -648,6 +794,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC--;
                     moveToR++;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
                 moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
@@ -659,6 +821,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC++;
                     moveToR++;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
                 moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
@@ -670,6 +848,22 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC++;
                     moveToR--;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
                 }
                 moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
                 moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
@@ -681,7 +875,131 @@ namespace Chess
                     border.Tapped += Brdr_Tapped;
                     moveToC--;
                     moveToR--;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
                 }
+
+                //left
+                moveToR = (int)current.GetValue(Grid.RowProperty);
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) - 1;
+                while (moveToC >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC--;
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+                    if (done)
+                    {
+                        break;
+                    }
+
+
+                }
+                //right
+                moveToR = (int)current.GetValue(Grid.RowProperty);
+                moveToC = (int)current.GetValue(Grid.ColumnProperty) + 1;
+                while (moveToC < 8)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToC++;
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+                    if (done)
+                    {
+                        break;
+                    }
+
+
+                }
+                //down
+                moveToR = (int)current.GetValue(Grid.RowProperty) - 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                while (moveToR >= 0)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToR--;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
+                }
+                //up
+                moveToR = (int)current.GetValue(Grid.RowProperty) + 1;
+                moveToC = (int)current.GetValue(Grid.ColumnProperty);
+                while (moveToR < 8)
+                {
+                    border = FindName(moveToR.ToString() + moveToC.ToString()) as Border;
+                    border.Background = new SolidColorBrush(Colors.AliceBlue);
+                    border.Tag = "valid";
+                    border.Tapped += Brdr_Tapped;
+                    moveToR++;
+
+                    done = false;
+                    foreach (Rectangle peice in board.Children.OfType<Rectangle>())
+                    {
+                        if (border.Name == (string)peice.Tag)
+                        {
+                            done = true;
+                            break;
+                        }
+                    }
+
+                    if (done)
+                    {
+                        break;
+                    }
+
+                }
+
+
             }
             if (current.Name.Contains("King"))
             {
@@ -796,7 +1114,7 @@ namespace Chess
 
             movePeice.SetValue(Grid.RowProperty, current.GetValue(Grid.RowProperty));
             movePeice.SetValue(Grid.ColumnProperty, current.GetValue(Grid.ColumnProperty));
-
+            movePeice.Tag = (String)movePeice.GetValue(Grid.RowProperty).ToString() + movePeice.GetValue(Grid.ColumnProperty).ToString();
             Grid board = FindName("ChessBoard") as Grid;
             foreach (var b in board.Children)
             {
